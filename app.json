@@ -40,6 +40,15 @@
     ],
     "experiments": {
       "typedRoutes": true
-    }
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "25baf982-d3bd-4492-b41d-f6aae9e3c140"
+      }
+    },
+    "owner": "tamizuddin"
   }
 }
