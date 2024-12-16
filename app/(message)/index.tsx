@@ -1,5 +1,6 @@
 import { ThemedText } from "@/components/ThemedText";
-import { Link, useNavigation } from "expo-router";
+import { useAuthContext } from "@/context/AuthContext";
+import { Link, useNavigation, useRouter } from "expo-router";
 
 import React, { useState, useEffect } from "react";
 import {
@@ -17,14 +18,19 @@ interface Message {
   text: string;
 }
 
-const socket: Socket = io("https://e9fd-103-135-175-162.ngrok-free.app"); // Replace with your server address
+const socket: Socket = io("https://8dcf-103-135-175-162.ngrok-free.app"); // Replace with your server address
 
 export default function MessagePage() {
   const [message, setMessage] = useState<string>("");
   const [messages, setMessages] = useState<Message[]>([]);
   const listRef = React.useRef<FlatList>(null);
-  const [logedin, setLogedin] = useState<boolean>(false);
-  const navigation: any = useNavigation();
+  const { token } = useAuthContext();
+  const router = useRouter();
+  useEffect(() => {
+    if (!token) {
+      router.push("/(auth)");
+    }
+  }, [token]);
   useEffect(() => {
     // Listen for incoming messages
     socket.on("receiveMessage", (data: Message) => {
@@ -42,11 +48,8 @@ export default function MessagePage() {
       listRef.current.scrollToEnd({ animated: true });
     }
   }, [messages]);
-  
 
   const sendMessage = () => {
-    setLogedin(!logedin)
-    navigation.replace("LoginPage");
     if (message.trim()) {
       const data: Message = { text: message };
       socket.emit("sendMessage", data); // Send message to server

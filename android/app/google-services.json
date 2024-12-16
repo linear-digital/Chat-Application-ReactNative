@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "682406289885",
+    "project_id": "chat-app-tamiz",
+    "storage_bucket": "chat-app-tamiz.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:682406289885:android:6634261162805065ee9634",
+        "android_client_info": {
+          "package_name": "com.genzit.chatapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "682406289885-udd558hia94vqongfmfnlhmcuvmi4962.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAy2PwgRbrudHofAQdTWijVXNmqNnP6_RA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "682406289885-udd558hia94vqongfmfnlhmcuvmi4962.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
